@@ -2,7 +2,7 @@ from django.db import models
 
 
 # Create your models here.
-class Activities(models.Model):
+class Activity(models.Model):
     title = models.CharField(max_length=50)
     description = models.TextField()
     coords = models.TextField()
