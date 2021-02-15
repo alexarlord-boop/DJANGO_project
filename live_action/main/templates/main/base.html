@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{% block title %}{% endblock %}</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+ <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 
         <script>
             L_NO_TOUCH = false;
@@ -30,21 +30,23 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_891b5e7bf51f47d8b044ea3186569ec9 {
+                #map_c6cc1bfe88a5492480a1fb8a32aa5d97 {
                     position: relative;
-                    width: 60.0%;
-                    height: 80.0%;
-                    left: 2.0%;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
                     top: 0.0%;
                 }
             </style>
+
 </head>
 <body>
     <nav class="navbar navbar-dark bg-dark" aria-label="First navbar example">
         <a class="navbar-brand" href="/">Live-Action</a>
         <div class="container row">
-            <a class=" p-1 text-light" href="/">Главная</a>
-            <a class=" p-1 text-light" href="">Цели</a>
+            <a class=" p-1 text-light" href="/">Ваш выбор</a>
+            <a class=" p-1 text-light" href="/map">Карта</a>
+            <a class=" p-1 text-light" href="/goals">Цели</a>
             <div></div>
             <div></div>
             <div></div>
@@ -53,11 +55,8 @@
         </div>
 
     </nav>
-
-
-        {% block content %}{% endblock %}
-
-
+        {% block content %}
+        {% endblock %}
 
 </body>
 </html>

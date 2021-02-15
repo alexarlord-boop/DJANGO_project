@@ -1,6 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
-
+from django.http import HttpResponseRedirect
 
 # Create your views here.
 def index(request):
@@ -9,3 +8,12 @@ def index(request):
 
 def about(request):
     return render(request, 'main/about.html')
+
+
+def goals(request):
+    return render(request, 'main/goals.html')
+
+
+def map(request):
+    return render(request, 'main/map.html')
+
