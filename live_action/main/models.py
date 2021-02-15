@@ -2,9 +2,10 @@ from django.db import models
 
 
 # Create your models here.
-class Places(models.Model):
+class Activities(models.Model):
     title = models.CharField(max_length=50)
     description = models.TextField()
+    coords = models.TextField()
 
     type = models.CharField(max_length=50)
     user_skill = models.IntegerField()  # 0-beginner,.., 2-pro
