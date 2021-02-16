@@ -2,5 +2,20 @@
 
 {% block title %}Главная{% endblock %}
 {% block content %}
+<center>
+    <form method="post" class="h4 pt-5 container-fluid row">
+        {% csrf_token %}
 
+        <div >{{form.type.label}}
+        {{form.type}}
+        {{form.user_skill.label}}
+        {{form.user_skill}}
+        {{form.enviroment_chars.label}}
+        {{form.enviroment_chars}}
+        {{form.extreme.label}}
+        {{form.extreme}}</div>
+
+        <button type="submit" class="btn btn-success m-5">Подбор</button>
+    </form>
+</center>
 {% endblock %}
