@@ -3,55 +3,56 @@
 {% block title %}Карта{% endblock %}
 
 {% block content %}
+{{map | safe}}
 
-<div class="folium-map" id="map_efc807b104824eb889a5de0d83e49f9d" ></div>
+<!--<div class="folium-map" id="map_efc807b104824eb889a5de0d83e49f9d" ></div>-->
 
-<script>
+<!--<script>-->
 
-            var map_efc807b104824eb889a5de0d83e49f9d = L.map(
-                "map_efc807b104824eb889a5de0d83e49f9d",
-                {
-                    center: [37.296933, -121.9574983],
-                    crs: L.CRS.EPSG3857,
-                    zoom: 8,
-                    zoomControl: true,
-                    preferCanvas: false,
-                }
-            );
-
-
-
-
-
-            var tile_layer_a96c34ff945a4d97b3028fc0db8099d2 = L.tileLayer(
-                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-                {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
-            ).addTo(map_efc807b104824eb889a5de0d83e49f9d);
-
-
-            var marker_3bf05ce305e94e9a8901708fc5181186 = L.marker(
-                [37.4074687, -122.086669],
-                {}
-            ).addTo(map_efc807b104824eb889a5de0d83e49f9d);
-
-
-            var icon_73fdaace794741259b820c5b3042fb8f = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "gray", "prefix": "glyphicon"}
-            );
-            marker_3bf05ce305e94e9a8901708fc5181186.setIcon(icon_73fdaace794741259b820c5b3042fb8f);
-
-
-        var popup_d6ca784b35d24ce891f0706204d6ce72 = L.popup({"maxWidth": "100%"});
-
-
-            var html_63b4a5583ea24821b46794c6b6dd3535 = $(`<div id="html_63b4a5583ea24821b46794c6b6dd3535" style="width: 100.0%; height: 100.0%;">Google HQ</div>`)[0];
-            popup_d6ca784b35d24ce891f0706204d6ce72.setContent(html_63b4a5583ea24821b46794c6b6dd3535);
-
-
-        marker_3bf05ce305e94e9a8901708fc5181186.bindPopup(popup_d6ca784b35d24ce891f0706204d6ce72)
-        ;
+<!--            var map_efc807b104824eb889a5de0d83e49f9d = L.map(-->
+<!--                "map_efc807b104824eb889a5de0d83e49f9d",-->
+<!--                {-->
+<!--                    center: [37.296933, -121.9574983],-->
+<!--                    crs: L.CRS.EPSG3857,-->
+<!--                    zoom: 8,-->
+<!--                    zoomControl: true,-->
+<!--                    preferCanvas: false,-->
+<!--                }-->
+<!--            );-->
 
 
 
-</script>
+
+
+<!--            var tile_layer_a96c34ff945a4d97b3028fc0db8099d2 = L.tileLayer(-->
+<!--                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",-->
+<!--                {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}-->
+<!--            ).addTo(map_efc807b104824eb889a5de0d83e49f9d);-->
+
+
+<!--            var marker_3bf05ce305e94e9a8901708fc5181186 = L.marker(-->
+<!--                [37.4074687, -122.086669],-->
+<!--                {}-->
+<!--            ).addTo(map_efc807b104824eb889a5de0d83e49f9d);-->
+
+
+<!--            var icon_73fdaace794741259b820c5b3042fb8f = L.AwesomeMarkers.icon(-->
+<!--                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "gray", "prefix": "glyphicon"}-->
+<!--            );-->
+<!--            marker_3bf05ce305e94e9a8901708fc5181186.setIcon(icon_73fdaace794741259b820c5b3042fb8f);-->
+
+
+<!--        var popup_d6ca784b35d24ce891f0706204d6ce72 = L.popup({"maxWidth": "100%"});-->
+
+
+<!--            var html_63b4a5583ea24821b46794c6b6dd3535 = $(`<div id="html_63b4a5583ea24821b46794c6b6dd3535" style="width: 100.0%; height: 100.0%;">Google HQ</div>`)[0];-->
+<!--            popup_d6ca784b35d24ce891f0706204d6ce72.setContent(html_63b4a5583ea24821b46794c6b6dd3535);-->
+
+
+<!--        marker_3bf05ce305e94e9a8901708fc5181186.bindPopup(popup_d6ca784b35d24ce891f0706204d6ce72)-->
+<!--        ;-->
+
+
+
+<!--</script>-->
 {% endblock %}
