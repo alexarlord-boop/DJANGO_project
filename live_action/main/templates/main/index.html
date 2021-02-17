@@ -2,20 +2,26 @@
 
 {% block title %}Главная{% endblock %}
 {% block content %}
-<center>
-    <form method="post" class="h4 pt-5 container-fluid row">
-        {% csrf_token %}
+<div class="container mt-5 pt-5">
+    <div class="row">
+        <div class="col-md-6">
+            <form method="post" class="h4 pt-5">
+                {% csrf_token %}
 
-        <div >{{form.type.label}}
-        {{form.type}}
-        {{form.user_skill.label}}
-        {{form.user_skill}}
-        {{form.enviroment_chars.label}}
-        {{form.enviroment_chars}}
-        {{form.extreme.label}}
-        {{form.extreme}}</div>
-
-        <button type="submit" class="btn btn-success m-5">Подбор</button>
-    </form>
-</center>
+                {{form.type.label}}
+                {{form.type}}<br>
+                {{form.user_skill.label}}
+                {{form.user_skill}}<br>
+                {{form.enviroment_chars.label}}
+                {{form.enviroment_chars}}<br>
+                {{form.extreme.label}}
+                {{form.extreme}}<br>
+                <button type="submit" class="btn btn-success m-5">Подбор</button>
+            </form>
+        </div>
+        <div class="col-md-6">
+            {{map | safe}}
+        </div>
+    </div>
+</div>
 {% endblock %}

@@ -14,9 +14,17 @@ def index(request):
             return HttpResponseRedirect('/map')
 
     form = FilterForm()
+
+    map = folium.Map(location=[37.296933, -121.9574983], zoom_start=8,
+                     height='100%', width='100%')
+    folium.Marker(location=[37.4074687, -122.086669], popup="Google HQ", icon=folium.Icon(color='gray')).add_to(map)
+    map = map._repr_html_()
+
     context = {
-        'form': form
+        'form': form,
+        'map': map,
     }
+
     return render(request, 'main/index.html', context)
 
 
