@@ -11,7 +11,7 @@ def index(request):
         form = FilterForm(request.POST)  # получаем данные из формы -> запрос к бд
         if form.is_valid():
             # действия с данными фильтра
-            return HttpResponseRedirect('/map')
+            pass
 
     form = FilterForm()
 
