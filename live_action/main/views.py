@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
 from .forms import FilterForm
 from .models import Activity
+from .activities import all_activities
 import folium
 
 colors = {'s_mount': 'white', 'under_water': 'deep-blue', 'on_water': 'blue'}
@@ -63,3 +64,16 @@ def make_map_with_filter_options(post_data):
     filter_map = base_map._repr_html_()
 
     return filter_map
+
+
+def add_activities_to_db(list_of_activities):
+    for act in list_of_activities:
+        new_activity = Activity(title=act['title'], description=act['description'],
+                                coords=act['coords'], type=act['type'],
+                                user_skill=act['user_skill'], enviroment_chars=act['enviroment_chars'],
+                                extreme=act['extreme'])
+        new_activity.save()
+
+
+if __name__ == '__main__':
+    add_activities_to_db(all_activities)
