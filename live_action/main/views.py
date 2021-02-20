@@ -9,18 +9,18 @@ colors = {'s_mount': 'white', 'under_water': 'deep-blue', 'on_water': 'blue'}
 
 # Create your views here.
 def index(request):
+    map = folium.Map(location=[37.296933, -121.9574983],
+                     zoom_start=8,
+                     height='100%',
+                     width='100%')._repr_html_()  # base map
+
     if request.method == 'POST':
         form = FilterForm(request.POST)  # получаем данные из формы -> запрос к бд
         if form.is_valid():
             # действия с данными фильтра
-
             map = make_map_with_filter_options(request.POST)
-    else:
-        map = map = folium.Map(location=[37.296933, -121.9574983], zoom_start=8,
-                               height='100%', width='100%')._repr_html_()  # sample map
 
     form = FilterForm()
-
     context = {
         'form': form,
         'map': map,
@@ -38,9 +38,9 @@ def goals(request):
 
 
 def map(request):
-    map = folium.Map(location=[37.296933, -121.9574983], zoom_start=8,
+    map = folium.Map(location=[37.296933, -121.9574983],
+                     zoom_start=8,
                      height='70%', width='100%')
-    folium.Marker(location=[37.4074687, -122.086669], popup="Google HQ", icon=folium.Icon(color='gray')).add_to(map)
 
     map = map._repr_html_()
     context = {'map': map}
@@ -49,7 +49,7 @@ def map(request):
 
 def make_map_with_filter_options(post_data):
     base_map = folium.Map(location=[50.296933, 40.9574983], zoom_start=2,
-                            height='100%', width='100%')
+                          height='100%', width='100%')
 
     activities = Activity.objects.filter(type__exact=post_data['type'],
                                          user_skill__lte=post_data['user_skill'],
