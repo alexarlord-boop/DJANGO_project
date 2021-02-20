@@ -46,7 +46,7 @@ def map(request):
 
 
 def make_map_with_filter_opt(post_data):
-    COLORS = {'s_mount': 'blue'}
+    COLORS = {'s_mount': 'white', 'under_water': 'deep-blue', 'on_water': 'blue'}
     map = folium.Map(location=[50.296933, 40.9574983], zoom_start=2,
                      height='100%', width='100%')
 
@@ -56,9 +56,10 @@ def make_map_with_filter_opt(post_data):
         if (el.type == post_data['type']) and (int(post_data['user_skill']) >= el.user_skill) and (
                 el.enviroment_chars == int(post_data['enviroment_chars'])) and el.extreme == int(post_data['extreme']):
             location = [float(el.coords.split(',')[0]), float(el.coords.split(',')[1])]
+
             folium.Marker(location=location, popup=el.title, icon=folium.Icon(color=COLORS[el.type])).add_to(map)
         else:
-            pass
+            continue
     map = map._repr_html_()
 
     return map
