@@ -39,14 +39,13 @@ def goals(request):
 
 
 def map(request):
-    base_map = folium.Map(location=[40, 40],
-                     zoom_start=2,
-                     height='70%', width='100%')
+    base_map = folium.Map(location=[40, 20],
+                          zoom_start=2,
+                          height='70%', width='100%')
     activities = Activity.objects.all()
     for el in activities:
         location = [float(el.coords.split(',')[0]), float(el.coords.split(',')[1])]
         folium.Marker(location=location, popup=el.title, icon=folium.Icon(color=colors[el.type])).add_to(base_map)
-
 
     map = base_map._repr_html_()
     context = {'map': map}
