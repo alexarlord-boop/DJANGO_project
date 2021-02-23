@@ -5,7 +5,7 @@ from .models import Activity
 from .activities import all_activities
 import folium
 
-colors = {'s_mount': 'white', 'under_water': 'deep-blue', 'on_water': 'blue'}
+colors = {'s_mount': 'lightblue', 'under_water': 'deepblue', 'on_water': 'red'}
 
 
 # Create your views here.
@@ -39,14 +39,15 @@ def goals(request):
 
 
 def map(request):
-    base_map = folium.Map(location=[40, 40],
-                     zoom_start=2,
-                     height='70%', width='100%')
+    base_map = folium.Map(location=[40, 20],
+                          zoom_start=2,
+                          height='70%', width='100%')
+    base_map.add_child(folium.LatLngPopup())
+
     activities = Activity.objects.all()
     for el in activities:
         location = [float(el.coords.split(',')[0]), float(el.coords.split(',')[1])]
         folium.Marker(location=location, popup=el.title, icon=folium.Icon(color=colors[el.type])).add_to(base_map)
-
 
     map = base_map._repr_html_()
     context = {'map': map}
@@ -78,6 +79,14 @@ def add_activities_to_db(list_of_activities):
                                 user_skill=act['user_skill'], enviroment_chars=act['enviroment_chars'],
                                 extreme=act['extreme'])
         new_activity.save()
+
+
+def add_one_activity_to_db(activitiy):
+    new_activity = Activity(title=activitiy['title'], description=activitiy['description'],
+                            coords=activitiy['coords'], type=activitiy['type'],
+                            user_skill=activitiy['user_skill'], enviroment_chars=activitiy['enviroment_chars'],
+                            extreme=activitiy['extreme'])
+    new_activity.save()
 
 
 if __name__ == '__main__':

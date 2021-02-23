@@ -13,4 +13,4 @@ class Activity(models.Model):
     extreme = models.IntegerField()
 
     def __str__(self):
-        return self.type
+        return f'{self.title}  ({self.type})'
