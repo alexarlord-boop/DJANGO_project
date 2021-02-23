@@ -1,4 +1,27 @@
 {% extends 'main/base.html' %}
 
 {% block title %}Главная{% endblock %}
-{% block content %}Карта{% endblock %}
+{% block content %}
+<div class="container mt-5 pt-5">
+    <div class="row">
+        <div class="col-md-6">
+            <form method="post" class="h4">
+                {% csrf_token %}
+
+                {{form.type.label}}
+                {{form.type}}<br>
+                {{form.user_skill.label}}
+                {{form.user_skill}}<br>
+                {{form.enviroment_chars.label}}
+                {{form.enviroment_chars}}<br>
+                {{form.extreme.label}}
+                {{form.extreme}}<br>
+                <button type="submit" class="btn btn-success m-5">Подбор</button>
+            </form>
+        </div>
+        <div class="col-md-6">
+            {{map | safe}}
+        </div>
+    </div>
+</div>
+{% endblock %}

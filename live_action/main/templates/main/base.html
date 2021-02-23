@@ -7,17 +7,27 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{% block title %}{% endblock %}</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
 </head>
 <body>
     <nav class="navbar navbar-dark bg-dark" aria-label="First navbar example">
         <a class="navbar-brand" href="/">Live-Action</a>
         <div class="container row">
-            <a class=" p-1 text-light" href="/">Главная</a>
+            <a class=" p-1 text-light" href="/">Ваш выбор</a>
+            <a class=" p-1 text-light" href="/map">Карта</a>
+            <a class=" p-1 text-light" href="/goals">Цели</a>
+            <div></div>
+            <div></div>
+            <div></div>
             <button class="btn btn-primary">Вход</button>
-            <a class=" p-1 text-light" href="/about">О нас</a>
+            <a class=" p-1 text-light" href="/about">О приложении</a>
         </div>
 
     </nav>
-    {% block content %}{% endblock %}
+        <div class="container-fluid">
+            {% block content %}
+            {% endblock %}
+        </div>
+
 </body>
 </html>
