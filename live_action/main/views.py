@@ -14,14 +14,13 @@ def index(request):
                      zoom_start=8,
                      height='100%',
                      width='100%')._repr_html_()  # base map
-
+    form = FilterForm()
     if request.method == 'POST':
         form = FilterForm(request.POST)  # получаем данные из формы -> запрос к бд
         if form.is_valid():
             # действия с данными фильтра
             map = make_map_with_filter_options(request.POST)
 
-    form = FilterForm()
     context = {
         'form': form,
         'map': map,
