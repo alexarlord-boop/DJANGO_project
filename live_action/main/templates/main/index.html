@@ -18,7 +18,8 @@
                 <button type="submit" class="btn btn-success mt-2">Подбор</button>
             </form>
 
-            <h3>Полученные точки</h3>
+            {% if user.is_authenticated %}
+                            <h3>Полученные точки</h3>
             <div id="listg" class="list-group">
 
             </div>
@@ -34,11 +35,11 @@
                                 <button class="button btn-primary">+</button>
                             </div>
                         </div>
-
-
                     </div>
                 {% endfor %}
             </div>
+            {% else %}
+            {% endif%}
 
         </div>
         <div class="col-md-8">
