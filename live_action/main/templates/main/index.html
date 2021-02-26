@@ -25,8 +25,17 @@
             <div data-spy="scroll" data-target="#listg" data-offset="0">
                 {% for point in points%}
                     <div class="list-group-item">
-                        <h6>{{point.title}}</h6>
-                        <small>{{point.coords}}</small>
+                        <div class="row">
+                            <div class="col-8">
+                                 <h6>{{point.title}}</h6>
+                                <small>{{point.coords}}</small>
+                            </div>
+                            <div class="col-1 ml-5 mt-2">
+                                <button class="button btn-primary">+</button>
+                            </div>
+                        </div>
+
+
                     </div>
                 {% endfor %}
             </div>
