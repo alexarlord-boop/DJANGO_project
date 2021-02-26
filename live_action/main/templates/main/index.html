@@ -23,9 +23,12 @@
 
             </div>
             <div data-spy="scroll" data-target="#listg" data-offset="0">
-                <div class="list-group-item"><h3>sample text</h3></div>
-                <div class="list-group-item"><h3>sample text</h3></div>
-                <div class="list-group-item"><h3>sample text</h3></div>
+                {% for point in points%}
+                    <div class="list-group-item">
+                        <h6>{{point.title}}</h6>
+                        <small>{{point.coords}}</small>
+                    </div>
+                {% endfor %}
             </div>
 
         </div>
