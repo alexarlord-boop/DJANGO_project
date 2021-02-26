@@ -3,8 +3,12 @@
 {% block title %}Карта{% endblock %}
 
 {% block content %}
-<div class="container mt-5 w-60">
+{% if user.is_authenticated %}
+<div>
     {{map | safe}}
 </div>
+{% else %}
+{{map | safe}}
+{% endif %}
 
 {% endblock %}

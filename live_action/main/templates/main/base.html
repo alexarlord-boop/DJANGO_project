@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
 </head>
-<body>
+<body style="overflow-y: hidden">
     <nav class="navbar navbar-dark bg-dark" aria-label="First navbar example">
         <a class="navbar-brand" href="/">Live-Action</a>
         <div class="container row">
@@ -19,15 +19,27 @@
             <div></div>
             <div></div>
             <div></div>
-            <button class="btn btn-primary">Вход</button>
+            <div></div>
+            <a class="text-light">{{user.username}}</a>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            {% if user.is_authenticated %}
+                <a href="/accounts/logout" class="btn btn-light" role="button">Выход</a>
+            {% else %}
+                <a href="/accounts/login" class="btn btn-light" role="button">Вход</a>
+                <a href="/accounts/register" class="btn btn-light" role="button">Регистрация</a>
+            {% endif %}
+
             <a class=" p-1 text-light" href="/about">О приложении</a>
         </div>
 
     </nav>
-        <div class="container-fluid">
+
             {% block content %}
             {% endblock %}
-        </div>
+
 
 </body>
 </html>

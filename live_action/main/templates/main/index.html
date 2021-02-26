@@ -2,12 +2,11 @@
 
 {% block title %}Главная{% endblock %}
 {% block content %}
-<div class="container mt-5 pt-5">
+<div class="container-fluid pt-5 ml-mr-4">
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-4">
             <form method="post" class="h4">
                 {% csrf_token %}
-
                 {{form.type.label}}
                 {{form.type}}<br>
                 {{form.user_skill.label}}
@@ -16,12 +15,28 @@
                 {{form.enviroment_chars}}<br>
                 {{form.extreme.label}}
                 {{form.extreme}}<br>
-                <button type="submit" class="btn btn-success m-5">Подбор</button>
+                <button type="submit" class="btn btn-success mt-2">Подбор</button>
             </form>
+
+            <h3 class="mt-4">Полученные точки:</h3>
+            {% if user.is_authenticated %}
+            <div data-spy="scroll" data-target="#list-example" data-offset="0" class="pre-scrollable">
+                {% for point in points%}
+                     <button id={{point.id}} type="button" class="list-group-item list-group-item-action">
+                         <h6>{{point.title}}</h6>
+                         <small>{{point.coords}}</small>
+                     </button>
+                {% endfor %}
+            </div>
+            {% else %}
+            <p class="text-secondary">Для сохранения точек в Цели зарегистрируйтесь или войдите.</p>
+            {% endif%}
+
         </div>
-        <div class="col-md-6">
+        <div class="col-md-8">
             {{map | safe}}
         </div>
     </div>
+
 </div>
 {% endblock %}
