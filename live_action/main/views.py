@@ -42,7 +42,7 @@ def goals(request):
 def map(request):
     base_map = folium.Map(location=[40, 20],
                           zoom_start=2,
-                          height='70%', width='100%')
+                          height='77%', width='100%')
 
     popup = folium.LatLngPopup()
     base_map.add_child(popup)
