@@ -4,10 +4,9 @@
 {% block content %}
 <div class="container mt-5 pt-5">
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-4">
             <form method="post" class="h4">
                 {% csrf_token %}
-
                 {{form.type.label}}
                 {{form.type}}<br>
                 {{form.user_skill.label}}
@@ -16,12 +15,24 @@
                 {{form.enviroment_chars}}<br>
                 {{form.extreme.label}}
                 {{form.extreme}}<br>
-                <button type="submit" class="btn btn-success m-5">Подбор</button>
+                <button type="submit" class="btn btn-success mt-2">Подбор</button>
             </form>
+
+            <h3>Полученные точки</h3>
+            <div id="listg" class="list-group">
+
+            </div>
+            <div data-spy="scroll" data-target="#listg" data-offset="0">
+                <div class="list-group-item"><h3>sample text</h3></div>
+                <div class="list-group-item"><h3>sample text</h3></div>
+                <div class="list-group-item"><h3>sample text</h3></div>
+            </div>
+
         </div>
-        <div class="col-md-6">
+        <div class="col-md-8">
             {{map | safe}}
         </div>
     </div>
+
 </div>
 {% endblock %}

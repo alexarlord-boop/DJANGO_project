@@ -41,7 +41,9 @@ def map(request):
     base_map = folium.Map(location=[40, 20],
                           zoom_start=2,
                           height='70%', width='100%')
-    base_map.add_child(folium.LatLngPopup())
+
+    popup = folium.LatLngPopup()
+    base_map.add_child(popup)
 
     activities = Activity.objects.all()
     for el in activities:
