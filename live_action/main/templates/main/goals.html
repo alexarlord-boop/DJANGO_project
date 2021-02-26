@@ -3,11 +3,23 @@
 {% block title %}Цели{% endblock %}
 
 {% block content %}
-<center>
-    <div class="container">
-        <h2>Следите за Своими успехами, ставьте новые цели.</h2>
-        <h2>История путешествий и Ваших достижений - всё здесь!</h2>
-
+{% if user.is_authenticated %}
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-6">
+                <h2>{{user.username}}, Ваши цели:</h2>
+            </div>
+            <div class="col-6">
+                <h2>{{user.username}}, Ваши цели:</h2>
+            </div>
+        </div>
     </div>
-</center>
+{% else %}
+    <center>
+        <div class="container mt-5">
+            <h2>Следите за Своими успехами, ставьте новые цели.</h2>
+            <h2>История путешествий и Ваших достижений - всё здесь!</h2>
+        </div>
+    </center>
+{% endif %}
 {% endblock %}
