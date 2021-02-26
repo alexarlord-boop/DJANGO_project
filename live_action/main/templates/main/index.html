@@ -2,7 +2,7 @@
 
 {% block title %}Главная{% endblock %}
 {% block content %}
-<div class="container mt-3 pt-5">
+<div class="container mt-1 pt-5">
     <div class="row">
         <div class="col-4">
             <form method="post" class="h4">
@@ -26,17 +26,10 @@
             </div>
             <div data-spy="scroll" data-target="#listg" data-offset="0">
                 {% for point in points%}
-                    <div class="list-group-item">
-                        <div class="row">
-                            <div class="col-8">
-                                 <h6>{{point.title}}</h6>
-                                <small>{{point.coords}}</small>
-                            </div>
-                            <div class="col-1 ml-5 mt-2">
-                                <button class="button btn-primary">+</button>
-                            </div>
-                        </div>
-                    </div>
+                     <button type="button" class="list-group-item list-group-item-action">
+                         <h6>{{point.title}}</h6>
+                         <small>{{point.coords}}</small>
+                     </button>
                 {% endfor %}
             </div>
             {% else %}
