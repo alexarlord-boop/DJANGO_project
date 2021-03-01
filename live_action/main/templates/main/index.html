@@ -5,7 +5,7 @@
 <div class="container-fluid pt-5 ml-mr-4">
     <div class="row">
         <div class="col-4">
-            <form method="post" class="h4">
+            <form method="post" class="h4" action="/">
                 {% csrf_token %}
                 {{form.type.label}}
                 {{form.type}}<br>
@@ -20,7 +20,7 @@
 
             <h3 class="mt-4">Полученные точки:</h3>
             {% if user.is_authenticated %}
-            <form method="post">
+            <form method="post" action="/add_goals">
                  {% csrf_token %}
                 <div data-spy="scroll" data-target="#list-example" data-offset="0" class="pre-scrollable">
                 {% for point in points%}

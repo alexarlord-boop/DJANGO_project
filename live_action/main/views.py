@@ -10,25 +10,30 @@ colors = {'s_mount': 'lightblue', 'under_water': 'deepblue', 'on_water': 'red'}
 
 # Create your views here.
 def index(request):
-    map = folium.Map(location=[37.296933, -121.9574983],
-                     zoom_start=8,
-                     height='100%',
-                     width='100%')._repr_html_()  # base map
+    base_map = folium.Map(location=[37.296933, -121.9574983], zoom_start=8,
+                          height='100%', width='100%')._repr_html_()
+
     form = FilterForm()
     points = list()
     if request.method == 'POST':
-        form = FilterForm(request.POST)  # получаем данные из формы -> запрос к бд
+        form = FilterForm(request.POST)
         if form.is_valid():
-            # действия с данными фильтра
-            map, points = make_map_with_filter_options(request.POST)
+            base_map, points = make_map_with_filter_options(request.POST)
 
     context = {
         'form': form,
-        'map': map,
+        'map': base_map,
         'points': points,
     }
 
     return render(request, 'main/index.html', context)
+
+
+def add_goals(request):
+    if request.method == 'POST':
+        pass
+    # return render(request, 'main/add_goals.html', context)
+    return redirect('/')
 
 
 def about(request):
