@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import User
 
 
 # Create your models here.
@@ -20,7 +20,7 @@ class Activity(models.Model):
 class Goal(models.Model):
     activity = models.OneToOneField(Activity, on_delete=models.CASCADE,
                                     default=-1)  # удаление цели после удаления активности
-    user = models.ForeignKey(AbstractUser, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, default=-1)
     title = models.TextField()
     add_data = models.DateField()
     is_done = models.IntegerField()
