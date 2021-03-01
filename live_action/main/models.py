@@ -14,3 +14,13 @@ class Activity(models.Model):
 
     def __str__(self):
         return f'{self.title}  ({self.type})'
+
+
+class Goal(models.Model):
+    activity_id = models.IntegerField()
+    activity_title = models.TextField()
+    add_data = models.DateField()
+    is_done = models.IntegerField()
+
+    def __str__(self):
+        return f'{self.activity_title}'
