@@ -19,6 +19,7 @@ class Activity(models.Model):
 
 class Goal(models.Model):
     activity = models.OneToOneField(Activity, on_delete=models.CASCADE)  # удаление цели после удаления активности
+    title = models.TextField()
     add_data = models.DateField()
     is_done = models.IntegerField()
 
