@@ -26,4 +26,4 @@ class Goal(models.Model):
     is_done = models.IntegerField()
 
     def __str__(self):
-        pass
+        return f'{self.title}'
