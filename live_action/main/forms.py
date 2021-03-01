@@ -12,3 +12,7 @@ class FilterForm(forms.Form):
                                          choices=(('0', 'Природа'), ('1', 'Курорт'),
                                                   ('2', 'Город')))  # 0-wild lands,..,2-city
     extreme = forms.ChoiceField(label='Экстримальность:', choices=(('0', 'Низкая'), ('1', 'Средняя'), ('2', 'Высокая')))
+
+
+class GoalForm(forms.Form):
+    activity_id = forms.CharField(max_length=50)

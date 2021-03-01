@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
-from .forms import FilterForm
+from .forms import FilterForm, GoalForm
 from .models import Activity
 from .activities import all_activities
 import folium
@@ -32,8 +32,8 @@ def index(request):
 def add_goals(request):
     if request.method == 'POST':
         pass
-    # return render(request, 'main/add_goals.html', context)
-    return redirect('/')
+    return render(request, 'main/add_goals.html', context)
+    # return redirect('/')
 
 
 def about(request):
