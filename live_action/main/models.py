@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 
 # Create your models here.
@@ -17,10 +18,9 @@ class Activity(models.Model):
 
 
 class Goal(models.Model):
-    activity_id = models.IntegerField()
-    activity_title = models.TextField()
+    activity = models.OneToOneField(Activity, on_delete=models.CASCADE)  # удаление цели после удаления активности
     add_data = models.DateField()
     is_done = models.IntegerField()
 
     def __str__(self):
-        return f'{self.activity_title}'
+        pass
