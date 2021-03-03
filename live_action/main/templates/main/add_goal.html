@@ -4,7 +4,7 @@
     <div class="mt-5">
         <h1>{{point.title}}</h1>
         <p>{{point.description}}</p>
-        <form method="post" class="h4" action="/add_goals/{{point.id}}">
+        <form method="post" class="h4" action="/add_goal/{{point.id}}">
             {% csrf_token %}
             <div class="row">
                 <div class="col-2"></div>

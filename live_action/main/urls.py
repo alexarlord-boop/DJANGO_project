@@ -6,5 +6,5 @@ urlpatterns = [
     path('map', views.map),
     path('goals', views.goals),
     path('about', views.about),
-    path('add_goals/<int:id>', views.add_goals)
+    path('add_goal/<int:id>', views.add_goals)
 ]

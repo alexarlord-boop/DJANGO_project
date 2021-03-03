@@ -46,7 +46,7 @@ def add_goals(request, id):
         'map': map,
     }
 
-    return render(request, 'main/add_goals.html', context)
+    return render(request, 'main/add_goal.html', context)
     # return redirect('/')
 
 
