@@ -34,11 +34,14 @@ def add_goals(request, id):
     #                       height='100%', width='100%')._repr_html_()
     form = GoalForm()
     map, point = set_point(id)
+    message = ''
     if request.method == 'POST':
-        pass
+        message = f'{point.title} добавлено в цели.'
+        # print(message)
 
     context = {
         'form': form,
+        'message': message,
         'point': point,
         'map': map,
     }
