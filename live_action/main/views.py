@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
 from .forms import FilterForm, GoalForm
-from .models import Activity
+from .models import Activity, Goal
 from .activities import all_activities
 import folium
 
@@ -74,6 +74,10 @@ def map(request):
     map = base_map._repr_html_()
     context = {'map': map}
     return render(request, 'main/map.html', context)
+
+
+def goal_addition(id):
+    pass
 
 
 def set_point(id):
