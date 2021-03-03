@@ -33,13 +33,14 @@ def add_goals(request, id):
     # base_map = folium.Map(location=[37.296933, -121.9574983], zoom_start=8,
     #                       height='100%', width='100%')._repr_html_()
     form = GoalForm()
-    point_on_map = set_point(id)
+    map, point = set_point(id)
     if request.method == 'POST':
         pass
 
     context = {
         'form': form,
-        'map': point_on_map,
+        'point': point,
+        'map': map,
     }
 
     return render(request, 'main/add_goals.html', context)
@@ -80,7 +81,7 @@ def set_point(id):
 
     folium.Marker(location=location, popup=point.title, icon=folium.Icon(color=colors[point.type])).add_to(base_map)
     point_on_map = base_map._repr_html_()
-    return point_on_map
+    return point_on_map, point
 
 
 def make_map_with_filter_options(post_data):

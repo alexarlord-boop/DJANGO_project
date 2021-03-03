@@ -1,5 +1,18 @@
 {% extends 'main/map_filter.html' %}
 
-{% block left_row %}
-
+{% block left_col %}
+    <div class="mt-5">
+        <h1>{{point.title}}</h1>
+        <p>{{point.description}}</p>
+        <form method="post" class="h4" action="/">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col-8">
+                    <button type="submit" class="btn btn-success mt-3">Добавить в цели</button>
+                </div>
+                <div class="col-2"></div>
+            </div>
+        </form>
+    </div>
 {% endblock %}

@@ -1,6 +1,6 @@
 {% extends 'main/map_filter.html' %}
 
-{% block left_row %}
+{% block left_col %}
     <form method="post" class="h4" action="/">
                 {% csrf_token %}
                 {{form.type.label}}
