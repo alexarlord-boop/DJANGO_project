@@ -12,6 +12,11 @@
                     <button type="submit" class="btn btn-success mt-3">Добавить в цели</button>
                 </div>
                 <div class="col-2"></div>
+                {% if is_added%}
+                    <h6 class="mt-4 text-success">{{message}}</h6>
+                {% else %}
+                    <h6 class="mt-4 text-warning">{{message}}</h6>
+                {% endif %}
             </div>
         </form>
     </div>

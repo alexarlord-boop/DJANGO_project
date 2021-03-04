@@ -37,6 +37,7 @@ def add_goals(request, id):
     form = GoalForm()
     map, point = set_point(id)
     message = ''
+    is_added = False
     if request.method == 'POST':
 
         if is_goal_in_list(point.title):
@@ -45,11 +46,13 @@ def add_goals(request, id):
             # добавление в модель цели
             add_goal_to_db(activity=point, user=get_user(request), data=get_data())
             message = f'{point.title} добавлено в цели.'
+            is_added = True
         print(message)
 
     context = {
         'form': form,
         'message': message,
+        'is_added': is_added,
         'point': point,
         'map': map,
     }
