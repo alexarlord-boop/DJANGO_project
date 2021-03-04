@@ -8,6 +8,9 @@
         <div class="row">
             <div class="col-6">
                 <h2>{{user.username}}, Ваши цели:</h2>
+                {% for goal in goals%}
+                    {{goal}}
+                {% endfor %}
             </div>
             <div class="col-6">
                 <h2>Описание цели:</h2>

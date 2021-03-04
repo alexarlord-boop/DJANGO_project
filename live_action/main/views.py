@@ -5,7 +5,7 @@ from .forms import FilterForm, GoalForm
 from .models import Activity, Goal
 from .activities import all_activities
 import folium
-import datetime
+from datetime import datetime
 
 colors = {'s_mount': 'lightblue', 'under_water': 'deepblue', 'on_water': 'red'}
 
@@ -63,7 +63,11 @@ def about(request):
 
 
 def goals(request):
-    return render(request, 'main/goals.html')
+    goals = Goal.objects.all()
+    context = {
+        'goals': goals,
+    }
+    return render(request, 'main/goals.html', context)
 
 
 def map(request):
@@ -134,7 +138,7 @@ def add_one_activity_to_db(activitiy):
 
 
 def add_goal_to_db(activity, user, data):
-    new_goal = Goal(activity=activity, user=user.id, title=activity.title,
+    new_goal = Goal(activity=activity, user=user, title=activity.title,
                     add_data=data, is_done=0)
     new_goal.save()
     print(new_goal.activity)
@@ -146,8 +150,7 @@ def is_goal_in_list(goal_title):
 
 
 def get_data():
-    dt = datetime.datetime
-    return dt.date
+    return datetime.today().strftime('%Y-%m-%d')
 
 
 if __name__ == '__main__':
