@@ -1,9 +1,11 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
+from django.contrib.auth import get_user
 from .forms import FilterForm, GoalForm
 from .models import Activity, Goal
 from .activities import all_activities
 import folium
+import datetime
 
 colors = {'s_mount': 'lightblue', 'under_water': 'deepblue', 'on_water': 'red'}
 
@@ -36,8 +38,14 @@ def add_goals(request, id):
     map, point = set_point(id)
     message = ''
     if request.method == 'POST':
-        message = f'{point.title} добавлено в цели.'
-        # print(message)
+
+        if is_goal_in_list(point.title):
+            message = f'{point.title} уже в ваших целях.'
+        else:
+            # добавление в модель цели
+            add_goal_to_db(activity=point, user=get_user(request), data=get_data())
+            message = f'{point.title} добавлено в цели.'
+        print(message)
 
     context = {
         'form': form,
@@ -123,6 +131,23 @@ def add_one_activity_to_db(activitiy):
                             user_skill=activitiy['user_skill'], enviroment_chars=activitiy['enviroment_chars'],
                             extreme=activitiy['extreme'])
     new_activity.save()
+
+
+def add_goal_to_db(activity, user, data):
+    new_goal = Goal(activity=activity, user=user.id, title=activity.title,
+                    add_data=data, is_done=0)
+    new_goal.save()
+    print(new_goal.activity)
+
+
+def is_goal_in_list(goal_title):
+    goals = Goal.objects.filter(title__exact=goal_title)
+    return len(goals) != 0
+
+
+def get_data():
+    dt = datetime.datetime
+    return dt.date
 
 
 if __name__ == '__main__':
