@@ -6,14 +6,25 @@
 {% if user.is_authenticated %}
     <div class="container mt-5">
         <div class="row">
-            <div class="col-6">
+            <div class="col-5">
                 <h2>{{user.username}}, Ваши цели:</h2>
+                <div data-spy="scroll" data-target="#list-example" data-offset="0" class="pre-scrollable">
                 {% for goal in goals%}
-                    {{goal}}
+                     <a class="text-decoration-none">
+                         <button id={{point.id}} type="button" class="list-group-item list-group-item-action">
+                         <div class="row">
+                             <div class="col-12">
+                                 <h6>{{goal.title}}</h6>
+                             </div>
+                         </div>
+                     </button>
+                     </a>
                 {% endfor %}
             </div>
-            <div class="col-6">
+            </div>
+            <div class="col-6 ml-5">
                 <h2>Описание цели:</h2>
+
             </div>
         </div>
     </div>
