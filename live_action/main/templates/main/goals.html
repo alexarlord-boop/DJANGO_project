@@ -10,7 +10,7 @@
                 <h2>{{user.username}}, Ваши цели:</h2>
                 <div data-spy="scroll" data-target="#list-example" data-offset="0" class="pre-scrollable">
                 {% for goal in goals%}
-                     <a class="text-decoration-none">
+                     <a href="/goals/{{goal.id}}" class="text-decoration-none">
                          <button id={{point.id}} type="button" class="list-group-item list-group-item-action">
                          <div class="row">
                              <div class="col-12">
@@ -22,8 +22,29 @@
                 {% endfor %}
             </div>
             </div>
+
             <div class="col-6 ml-5">
                 <h2>Описание цели:</h2>
+                {% if descr%}
+                <div class="row" id="title"><h4>Место: {{descr.title}}</h4></div>
+                <div class="row" id="date"><h4>Добавлено: {{descr.add_data}}</h4></div>
+                <div class="row" id="type">
+                    <h4>{{descr.activity.type}}</h4>
+                </div>
+                <div class="row">
+                    {% if descr.is_done == 0 %}
+                    <h4>Статус: </h4>
+                    <h4></h4>
+                    <h4 class="text-danger"> Не выполнено. </h4>
+                    {% else %}
+                        <h4 class="text-success">Выполнено. </h4>
+                    {% endif %}
+                </div>
+                <div class="row"></div>
+
+                {% else %}
+                    <p>Выберите цель</p>
+                {% endif%}
             </div>
         </div>
     </div>

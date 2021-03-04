@@ -65,10 +65,16 @@ def about(request):
     return render(request, 'main/about.html')
 
 
-def goals(request):
+def goals(request, id=None):
     goals = Goal.objects.all()
+    description = None
+    if id is not None:
+        description = Goal.objects.filter(id__exact=id)[0]
+
+
     context = {
         'goals': goals,
+        'descr': description,
     }
     return render(request, 'main/goals.html', context)
 
