@@ -2,15 +2,25 @@
 
 {% block left_col %}
     <form method="post" class="h4" action="/">
-                {% csrf_token %}
-                {{form.type.label}}
-                {{form.type}}<br>
-                {{form.user_skill.label}}
-                {{form.user_skill}}<br>
-                {{form.enviroment_chars.label}}
-                {{form.enviroment_chars}}<br>
-                {{form.extreme.label}}
-                {{form.extreme}}<br>
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-6">
+                {{form.type.label}}<br><br>
+                <div class="mt-2">{{form.user_skill.label}}<br><br></div>
+                <div class="mt-2">{{form.enviroment_chars.label}}<br><br></div>
+                <div class="mt-1">{{form.extreme.label}}</div>
+            </div>
+            <div class="col-5">
+                {{form.type}}<br><br>
+                {{form.user_skill}}<br><br>
+                {{form.enviroment_chars}}<br><br>
+                {{form.extreme}}
+            </div>
+        </div>
+
+
+
+
                 <button type="submit" class="btn btn-success mt-2">Подбор</button>
             </form>
     <h3 class="mt-4">Полученные точки:</h3>

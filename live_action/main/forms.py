@@ -6,7 +6,7 @@ from .activity_choices import CHOICES
 class FilterForm(forms.Form):
     type = forms.ChoiceField(label='Вид спорта:',
                              choices=CHOICES)
-    user_skill = forms.ChoiceField(label='Уровень навыков',
+    user_skill = forms.ChoiceField(label='Уровень:',
                                    choices=(('0', 'Новичок'), ('1', 'Умелый'), ('2', 'Эксперт')))
     enviroment_chars = forms.ChoiceField(label='Окружение:',
                                          choices=(('0', 'Природа'), ('1', 'Курорт'),
