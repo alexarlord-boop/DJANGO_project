@@ -27,21 +27,33 @@
             <div class="col-6 ml-5">
                 <h2>Описание цели:</h2>
                 {% if descr%}
-                <div class="row" id="title"><h4>Место: {{descr.title}}</h4></div>
-                <div class="row" id="date"><h4>Добавлено: {{descr.add_data}}</h4></div>
-                <div class="row" id="type">
-                    <h4>{{descr.activity.type}}</h4>
+                    <div class="list-group">
+                        <h6 class="text-secondary">Место:</h6>
+                        <div class="list-group-item" id="title"><h5>{{descr.title}}</h5></div>
+                        <h6 class="text-secondary">Добавлено: </h6>
+                        <div class="list-group-item" id="date"><h5>{{descr.add_data}}</h5></div>
+                        <h6 class="text-secondary">Тип: </h6>
+                        <div class="list-group-item" id="type"><h5>{{descr.activity.type}}</h5></div>
+                        <h6 class="text-secondary">Статус:</h6>
+                        {% if descr.is_done == 0 %}
+                            <div class="list-group-item">
+                                <h5 class="text-danger"> Не выполнено. </h5>
+                            </div>
+                        {% else %}
+                            <div class="list-group-item">
+                                Статус: <h5 class="text-success">Выполнено. </h5>
+                            </div>
+                        {% endif %}
+
+                        <div id="buttons" class="row mt-3">
+                            <div class="col-4" align="center"><button class="btn-success">Выполнено</button></div>
+                            <div class="col-4" align="center"><button class="btn-danger">Удалить</button></div>
+                            <div class="col-4" align="center"><button class="btn-success">Выполнено</button></div>
+                        </div>
                 </div>
-                <div class="row">
-                    {% if descr.is_done == 0 %}
-                    <h4>Статус: </h4>
-                    <h4></h4>
-                    <h4 class="text-danger"> Не выполнено. </h4>
-                    {% else %}
-                        <h4 class="text-success">Выполнено. </h4>
-                    {% endif %}
-                </div>
-                <div class="row"></div>
+
+
+
 
                 {% else %}
                     <p>Выберите цель</p>
