@@ -66,7 +66,7 @@ def about(request):
 
 
 def goals(request, id=None):
-    goals = Goal.objects.all()
+    goals = Goal.objects.filter(user__exact=get_user(request))
     description = None
     if id is not None:
         description = Goal.objects.filter(id__exact=id)[0]
