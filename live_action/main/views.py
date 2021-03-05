@@ -159,7 +159,7 @@ def is_goal_in_list(goal_title):
 
 
 def change_goal_status(id, status):
-    goal = Goal.objects.filter(id__exact=id)
+    goal = Goal.objects.filter(id__exact=id)[0]
     goal.is_done = status
     goal.save()
 
