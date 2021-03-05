@@ -65,13 +65,19 @@ def about(request):
     return render(request, 'main/about.html')
 
 
-def goals(request, id=None, status=None):
+def goals(request, id=None, delete=None, status=None):
     user_goals = Goal.objects.filter(user__exact=get_user(request))
-    description= None
+    description = None
     if id is not None:
         description = Goal.objects.filter(id__exact=id)[0]
     if status is not None:
-        change_goal_status(id, status)
+        if status != -1:
+            change_goal_status(id, status)
+
+    if delete == 'delete':
+        delete_goal(id)
+
+
     context = {
         'goals': user_goals,
         'descr': description,
@@ -162,6 +168,10 @@ def change_goal_status(id, status):
     goal = Goal.objects.filter(id__exact=id)[0]
     goal.is_done = status
     goal.save()
+
+
+def delete_goal(id):
+    Goal.objects.filter(id__exact=id).delete()
 
 
 def get_data():
