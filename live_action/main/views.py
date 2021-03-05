@@ -65,15 +65,15 @@ def about(request):
     return render(request, 'main/about.html')
 
 
-def goals(request, id=None):
-    goals = Goal.objects.filter(user__exact=get_user(request))
-    description = None
+def goals(request, id=None, status=None):
+    user_goals = Goal.objects.filter(user__exact=get_user(request))
+    description= None
     if id is not None:
         description = Goal.objects.filter(id__exact=id)[0]
-
-
+    if status is not None:
+        change_goal_status(id, status)
     context = {
-        'goals': goals,
+        'goals': user_goals,
         'descr': description,
     }
     return render(request, 'main/goals.html', context)
@@ -156,6 +156,12 @@ def add_goal_to_db(activity, user, data):
 def is_goal_in_list(goal_title):
     goals = Goal.objects.filter(title__exact=goal_title)
     return len(goals) != 0
+
+
+def change_goal_status(id, status):
+    goal = Goal.objects.filter(id__exact=id)
+    goal.is_done = status
+    goal.save()
 
 
 def get_data():

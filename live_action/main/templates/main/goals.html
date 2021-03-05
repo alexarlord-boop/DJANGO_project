@@ -14,9 +14,14 @@
                      <a href="/goals/{{goal.id}}" class="text-decoration-none">
                          <button id={{point.id}} type="button" class="list-group-item list-group-item-action">
                          <div class="row">
-                             <div class="col-12">
+                             <div class="col-10">
                                  <h6>{{goal.title}}</h6>
                              </div>
+                             {% if goal.is_done == 0%}
+                                <div class="col-1 alert-danger"></div>
+                             {% else %}
+                                <div class="col-1 alert-success"></div>
+                             {% endif %}
                          </div>
                      </button>
                      </a>
