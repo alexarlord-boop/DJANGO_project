@@ -47,7 +47,7 @@ def add_goals(request, id):
             add_goal_to_db(activity=point, user=get_user(request), data=get_data())
             message = f'{point.title} добавлено в цели.'
             is_added = True
-        print(message)
+        # print(message)
 
     context = {
         'form': form,
@@ -150,7 +150,7 @@ def add_goal_to_db(activity, user, data):
     new_goal = Goal(activity=activity, user=user, title=activity.title,
                     add_data=data, is_done=0)
     new_goal.save()
-    print(new_goal.activity)
+    # print(new_goal.activity)
 
 
 def is_goal_in_list(goal_title):
