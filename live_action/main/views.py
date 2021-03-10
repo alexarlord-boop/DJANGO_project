@@ -77,7 +77,6 @@ def goals(request, id=None, delete=None, status=None):
     if delete == 'delete':
         delete_goal(id)
 
-
     context = {
         'goals': user_goals,
         'descr': description,
@@ -123,7 +122,7 @@ def make_map_with_filter_options(post_data):
                           height='100%', width='100%')
     # add_activities_to_db(all_activities)
     activities = Activity.objects.filter(type__exact=post_data['type'],
-                                         season__lte=post_data['season'],
+                                         season__exact=post_data['season'],
                                          enviroment_chars__exact=post_data['enviroment_chars'],
                                          extreme__lte=post_data['extreme'])
     for el in activities:
