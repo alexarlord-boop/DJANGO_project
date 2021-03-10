@@ -8,7 +8,7 @@ from .models import Activity, Goal
 @admin.register(Activity)
 class ActivityAdmin(admin.ModelAdmin):
     list_display = ['title']
-    list_filter = ['type']
+    list_filter = ['type', 'season']
 
 
 @admin.register(Goal)

@@ -38,8 +38,18 @@
                         <div class="list-group-item" id="title"><h5>{{descr.title}}</h5></div>
                         <h6 class="text-secondary">Добавлено: </h6>
                         <div class="list-group-item" id="date"><h5>{{descr.add_data}}</h5></div>
-                        <h6 class="text-secondary">Тип: </h6>
-                        <div class="list-group-item" id="type"><h5>{{descr.activity.type}}</h5></div>
+                        <h6 class="text-secondary">Сезон: </h6>
+                        {% if descr.activity.season == 0%}
+                            <div class="list-group-item" id="type0"><h5>Зима</h5></div>
+                        {% elif descr.activity.season == 1%}
+                            <div class="list-group-item" id="type1"><h5>Весна</h5></div>
+                        {% elif descr.activity.season == 2%}
+                            <div class="list-group-item" id="type2"><h5>Лето</h5></div>
+                        {% elif descr.activity.season == 3%}
+                            <div class="list-group-item" id="type3"><h5>Осень</h5></div>
+                        {% elif descr.activity.season == 4%}
+                            <div class="list-group-item" id="type4"><h5>Любой</h5></div>
+                        {% endif %}
                         <h6 class="text-secondary">Статус:</h6>
                         {% if descr.is_done == 0 %}
                             <div class="list-group-item">
