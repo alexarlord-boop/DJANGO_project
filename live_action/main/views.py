@@ -123,7 +123,7 @@ def make_map_with_filter_options(post_data):
                           height='100%', width='100%')
     # add_activities_to_db(all_activities)
     activities = Activity.objects.filter(type__exact=post_data['type'],
-                                         user_skill__lte=post_data['user_skill'],
+                                         season__lte=post_data['season'],
                                          enviroment_chars__exact=post_data['enviroment_chars'],
                                          extreme__lte=post_data['extreme'])
     for el in activities:
@@ -139,7 +139,7 @@ def add_activities_to_db(list_of_activities):
     for act in list_of_activities:
         new_activity = Activity(title=act['title'], description=act['description'],
                                 coords=act['coords'], type=act['type'],
-                                user_skill=act['user_skill'], enviroment_chars=act['enviroment_chars'],
+                                season=act['season'], enviroment_chars=act['enviroment_chars'],
                                 extreme=act['extreme'])
         new_activity.save()
 
@@ -147,7 +147,7 @@ def add_activities_to_db(list_of_activities):
 def add_one_activity_to_db(activitiy):
     new_activity = Activity(title=activitiy['title'], description=activitiy['description'],
                             coords=activitiy['coords'], type=activitiy['type'],
-                            user_skill=activitiy['user_skill'], enviroment_chars=activitiy['enviroment_chars'],
+                            season=activitiy['season'], enviroment_chars=activitiy['enviroment_chars'],
                             extreme=activitiy['extreme'])
     new_activity.save()
 
