@@ -120,14 +120,21 @@ def set_point(id):
 def make_map_with_filter_options(post_data):
     base_map = folium.Map(location=[50.296933, 40.9574983], zoom_start=2,
                           height='100%', width='100%')
+    average_x, average_y = 0, 0
     # add_activities_to_db(all_activities)
     activities = Activity.objects.filter(type__exact=post_data['type'],
                                          season__exact=post_data['season'],
                                          enviroment_chars__exact=post_data['enviroment_chars'],
                                          extreme__lte=post_data['extreme'])
+
     for el in activities:
         location = [float(el.coords.split(',')[0]), float(el.coords.split(',')[1])]
+        average_x = (average_x + location[0])
+        average_y = (average_y + location[1])
         folium.Marker(location=location, popup=el.title, icon=folium.Icon(color=colors[el.type])).add_to(base_map)
+    k = len(activities)
+    if k != 0:
+        base_map.location = [average_x / k, average_y / k]
 
     filter_map = base_map._repr_html_()
 
