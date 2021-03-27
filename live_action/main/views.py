@@ -7,7 +7,7 @@ from .activities import all_activities
 import folium
 from datetime import datetime
 
-colors = {'s_mount': 'lightblue', 'under_water': 'deepblue', 'on_water': 'red'}
+colors = {'s_mount': 'lightblue', 'under_water': 'blue', 'on_water': 'red'}
 
 
 # Create your views here.
