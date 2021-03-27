@@ -14,5 +14,5 @@ class ActivityAdmin(admin.ModelAdmin):
 @admin.register(Goal)
 class GoalAdmin(admin.ModelAdmin):
     list_display = ['title']
-    list_filter = ['is_done', 'user']
+    list_filter = ['user', 'is_done']
 
