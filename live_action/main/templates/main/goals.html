@@ -6,11 +6,71 @@
 {% if user.is_authenticated %}
     <div class="container mt-5">
         <div class="row">
-            <div class="col-6">
+
+            <div class="col-5">
                 <h2>{{user.username}}, Ваши цели:</h2>
+                <div data-spy="scroll" data-target="#list-example" data-offset="0" >
+                {% for goal in goals%}
+                     <a href="/goals/{{goal.id}}" class="text-decoration-none">
+                         <button id={{point.id}} type="button" class="list-group-item list-group-item-action">
+                         <div class="row">
+                             <div class="col-10">
+                                 <h6>{{goal.title}}</h6>
+                             </div>
+                             {% if goal.is_done == 0%}
+                                <div class="col-1 alert-danger"></div>
+                             {% else %}
+                                <div class="col-1 alert-success"></div>
+                             {% endif %}
+                         </div>
+                     </button>
+                     </a>
+                {% endfor %}
             </div>
-            <div class="col-6">
+            </div>
+
+            <div class="col-6 ml-5">
                 <h2>Описание цели:</h2>
+                 {% if goals|length != 0%}
+                {% if descr%}
+                    <div class="list-group">
+                        <h6 class="text-secondary">Место:</h6>
+                        <div class="list-group-item" id="title"><h5>{{descr.title}}</h5></div>
+                        <h6 class="text-secondary">Добавлено: </h6>
+                        <div class="list-group-item" id="date"><h5>{{descr.add_data}}</h5></div>
+                        <h6 class="text-secondary">Сезон: </h6>
+                        {% if descr.activity.season == 0%}
+                            <div class="list-group-item" id="type0"><h5>Зима</h5></div>
+                        {% elif descr.activity.season == 1%}
+                            <div class="list-group-item" id="type1"><h5>Весна</h5></div>
+                        {% elif descr.activity.season == 2%}
+                            <div class="list-group-item" id="type2"><h5>Лето</h5></div>
+                        {% elif descr.activity.season == 3%}
+                            <div class="list-group-item" id="type3"><h5>Осень</h5></div>
+                        {% elif descr.activity.season == 4%}
+                            <div class="list-group-item" id="type4"><h5>Любой</h5></div>
+                        {% endif %}
+                        <h6 class="text-secondary">Статус:</h6>
+                        {% if descr.is_done == 0 %}
+                            <div class="list-group-item">
+                                <h5 class="text-danger"> Не выполнена. </h5>
+                            </div>
+                        {% else %}
+                            <div class="list-group-item">
+                                <h5 class="text-success">Выполнена. </h5>
+                            </div>
+                        {% endif %}
+                </div>
+
+                    <div id="buttons" class="row mt-3">
+                            <a href="/goals/{{descr.id}}/1"><div class="col-4" align="center"><button class="btn-success">Выполнено</button></div></a>
+                            <a href="/goals/{{descr.id}}/2/delete"><div class="col-4" align="center"><button class="btn-danger">Удалить</button></div></a>
+                    </div>
+                {% endif %}
+
+                {% else %}
+                    <p>Выберите цель</p>
+                {% endif%}
             </div>
         </div>
     </div>

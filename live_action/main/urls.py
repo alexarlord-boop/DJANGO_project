@@ -5,5 +5,9 @@ urlpatterns = [
     path('', views.index),
     path('map', views.map),
     path('goals', views.goals),
-    path('about', views.about)
+    path('goals/<int:id>', views.goals),
+    path('goals/<int:id>/<int:status>', views.goals),
+    path('goals/<int:id>/<int:status>/<str:delete>', views.goals),
+    path('about', views.about),
+    path('add_goal/<int:id>', views.add_goals)
 ]
