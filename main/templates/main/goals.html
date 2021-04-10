@@ -76,13 +76,26 @@
     </div>
 {% else %}
     <center>
-        <div class="container mt-5 pt-5">
+        <div class="mt-5 bg-white"><p class="invisible">---</p></div>
+
+        <div class="mt-2">
             <h2>Следите за Своими успехами, ставьте новые цели.</h2>
             <h2>История путешествий и Ваших достижений - всё здесь!</h2>
-            <div class="mt-5">
+            <div class="mt-3">
                 <a href="/accounts/register" class="btn btn-dark" role="button">Присоединиться</a>
             </div>
         </div>
+
+        <div class="mt-5 bg-white"><p class="invisible">---</p></div>
+
+        <div class="mt-5">
+            <h4>Продолжить без регистрации.</h4>
+            <p class="text-warning">Некоторые функции будут недоступны.</p>
+            <div class="mt-2">
+                <a href="/" class="btn btn-dark" role="button">На главную</a>
+            </div>
+        </div>
+
     </center>
 {% endif %}
 {% endblock %}
