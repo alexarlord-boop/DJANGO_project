@@ -3,12 +3,9 @@
 {% block title %}Карта{% endblock %}
 
 {% block content %}
-{% if user.is_authenticated %}
+
 <div>
     {{map | safe}}
 </div>
-{% else %}
-{{map | safe}}
-{% endif %}
 
 {% endblock %}
