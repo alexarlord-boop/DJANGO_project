@@ -1,6 +1,40 @@
-<h2>Log In</h2>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Log In</button>
-</form>
+{% extends 'base.html' %}
+
+{% block content%}
+
+<div class="card ">
+  <div class="text-center">
+      <div class="card-header">Log In</div>
+      <div class="mt-3 bg-white"><p class="invisible">---</p></div>
+      <div class="mt-4 bg-white"><p class="invisible">---</p></div>
+  <div class="card-body">
+    <h5 class="card-title">Войдите в свой аккаунт</h5>
+      <form method="post">
+        {% csrf_token %}
+        <center>
+            {{form.as_p}}
+            <button type="submit" class="btn btn-primary">Log In</button>
+        </center>
+      </form>
+  </div>
+    <div class="mt-3 bg-white"><p class="invisible">---</p></div>
+  </div>
+
+    <div class="mt-3 bg-white"><p class="invisible">---</p></div>
+    <div class="mt-4 bg-white"><p class="invisible">---</p></div>
+
+  <div class="card-footer text-muted">
+      <div class="row">
+          <div class="col-3">#Live-Action project</div>
+          <div class="col-3">
+          <a href="https://clck.ru/UDKyf" class="text-decoration-none text-light">https://clck.ru/UDKyf</a>
+      </div>
+      </div>
+
+  </div>
+</div>
+{% endblock%}
+
+
+
+
