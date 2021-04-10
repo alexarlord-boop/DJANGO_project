@@ -24,7 +24,7 @@ SECRET_KEY = 'w%3m2f8%=)&k-65=lsdjs7srey*ov^z2(0bx(kt8d3pemgmdlg'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['alexarlord2.pythonanywhere.com']
+ALLOWED_HOSTS = ['alexarlord2.pythonanywhere.com', '127.0.0.1']
 
 # Application definition
 
@@ -118,3 +118,4 @@ USE_TZ = True
 STATIC_URL = '/static/'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
+# REGISTERCOMPLETE_REDIRECT_URL = '/'
