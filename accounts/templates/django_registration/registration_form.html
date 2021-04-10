@@ -1,6 +1,29 @@
-<h2>Sign up</h2>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Sign up</button>
-</form>
+{% extends 'base.html' %}
+
+{% block content%}
+
+
+<div class="card ">
+    <div class="card-header text-center">
+    Sign Up
+    </div>
+
+    <div class="mt-4 bg-white"><p class="invisible">---</p></div>
+
+    <h5 class="card-title text-center">Зарегистрируйтесь</h5>
+    <div class="card-body ml-5">
+      <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <center><button type="submit" class="btn btn-primary">Sign up</button></center>
+      </form>
+    </div>
+
+  <div class="card-footer text-muted">
+      <div class="row">
+          <div class="col-3">#Live-Action project</div>
+      </div>
+  </div>
+</div>
+
+{% endblock%}

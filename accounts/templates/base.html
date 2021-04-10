@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+</head>
+<body style="overflow: hidden">
+    <nav class="navbar navbar-dark bg-dark" aria-label="First navbar example">
+        <a class="navbar-brand" href="/">Live-Action</a>
+        <div class="container row">
+            <a class=" p-1 text-light" href="/">Ваш выбор</a>
+            <a class=" p-1 text-light" href="/map">Карта</a>
+            <a class=" p-1 text-light" href="/goals">Цели</a>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <a class="text-light">{{user.username}}</a>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            {% if user.is_authenticated %}
+                <a href="/accounts/logout" class="btn btn-light" role="button">Выход</a>
+            {% else %}
+                <a href="/accounts/login" class="btn btn-light" role="button">Вход</a>
+                <a href="/accounts/register" class="btn btn-light" role="button">Регистрация</a>
+            {% endif %}
+
+            <a class=" p-1 text-light" href="/about">О приложении</a>
+        </div>
+
+    </nav>
+
+    {% block content %}
+    {% endblock %}
+
+
+</body>
+</html>
