@@ -17,12 +17,15 @@
                 {{form.extreme}}
             </div>
         </div>
+        <div class="row mt-2">
+            <div class="col-3"></div>
+            <div class="col-6">
+                <button type="submit" class="btn btn-success mx-auto mt-2">Выполнить Подбор  </button>
+            </div>
+            <div class="col-3"></div>
+        </div>
+    </form>
 
-
-
-
-                <button type="submit" class="btn btn-success mt-2">Подбор</button>
-            </form>
     <h3 class="mt-4">Полученные точки:</h3>
             {% if user.is_authenticated %}
             <form method="post">
